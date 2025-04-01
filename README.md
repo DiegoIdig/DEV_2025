@@ -1,5 +1,5 @@
 # DEV_2025
-Existen 2 versiones distinas del exploit:
+Existen 2 versiones distinas del exploit (ninguna funcional):
   - exploit_ret.c : se basa en sobrescribir la dirección de retorno de la pila por la dirección de inicio del payload, donde se ejecutarán varios NOPs y la shellcode.
   - exploit_jmp.c : se basa en sobrescribir la dirección de retorno de la pila por la instrucción de salto relativo indicando un salto hacia atrás, el salto tiene que ser exacto al inicio del shellcode.
 
