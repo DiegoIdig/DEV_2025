@@ -9,4 +9,4 @@ Existen 2 versiones del shellcode:
 
 Además de ello, hay capturas de pantalla de los resultados de cada programa para ver que lo indicado en el informe es verídico.
 
-Se proporciona también el programa vulnerable modificado con el fin de ver el código modificado para depurar los programas visualizando el buffer post copia con la función strcpy.
+Se proporciona también el programa vulnerable, con el fin de ver el código modificado para depurar los programas visualizando el buffer post-copia con la función strcpy.
