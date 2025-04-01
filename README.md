@@ -8,3 +8,4 @@ Existen 2 versiones del shellcode:
   - shellcode_noNull : una versión que evita tener bytes nulos (0x00) para que strcpy no interprete dicho valor como fin de cadena de carácteres.
 
 Además de ello, hay capturas de pantalla de los resultados de cada programa para ver que lo indicado en el informe es verídico.
+Se proporciona también el programa vulnerable modificado con el fin de ver el código modificado para depurar los programas visualizando el buffer post copia con la función strcpy.
